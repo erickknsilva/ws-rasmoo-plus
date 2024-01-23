@@ -1,0 +1,50 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /ws-rasplus
+
+spring:
+  main:
+    banner-mode: "off"
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: erickdecker23@gmail.com
+    password: hnaqfnpimerribou
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rasplus
+    username: root
+    password: root
+  flyway:
+    enabled: true
+
+webservices:
+  raspay:
+    host: ${RASPAY_HOST:http://localhost:8081/ws-raspay}
+    v1:
+      customer: ${RASPAY_CUSTOMER:/v1/customer}
+      order: ${RASPAY_ORDER:/v1/order}
+      payment: ${RASPAY_PAYMENT:/v1/payment/credit-card}
+  rasplus:
+    jwt:
+      expiration: 360000
+      password: rasmooplus
+
+#logging:
+#  level:
+#    root: DEBUG
+
+
+
+
+
+
+
+
